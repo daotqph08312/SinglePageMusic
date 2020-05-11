@@ -11,8 +11,9 @@ const Singers = 'http://localhost:8080/single';
 export class SingerService {
 
   constructor(private http: HttpClient) { }
-  getListSingers(): Observable<Singer>{
-    return this.http.get<Singer>(Singers);
+  getListSingers(): Observable<Array<Singer>>{
+    const url = 'http://localhost:8080/single/';
+    return this.http.get<Array<Singer>>(url);
   }
   getSingersById(id: number): Observable<Singer>{
     const url = `${Singers}/${id}`;
