@@ -16,7 +16,7 @@ public class SongService implements SongInterFace{
 	@Autowired private SongRepository song;
 	@Override
 	public List<Song> getListSong() {
-		return this.song.findAll();
+		return this.song.getChartMusic();
 	}
 
 	@Override
@@ -39,6 +39,11 @@ public class SongService implements SongInterFace{
 	public void delete(Integer id) {
 		 this.song.deleteById(id);
 		 
+	}
+
+	@Override
+	public List<Song> getSongbyAlbum(Integer id) {
+		return this.song.getSongbyAlbum(id);
 	}
 
 }

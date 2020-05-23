@@ -17,6 +17,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
@@ -27,13 +28,14 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 @Table(name = "album", catalog = "singlepagemusic")
 public class Album implements java.io.Serializable {
 	private static final long serialVersionUID = 1L;
-	private Integer id;
-	private Category category;
-	private Singer singer;
-	private String name;
-	private String picture;
-	private Date datenotify;
-	private Set<Song> songs = new HashSet<Song>(0);
+	  Integer id;
+	 
+	  Category category;
+	  Singer singer;
+	  String name;
+	  String picture;
+	  Date datenotify;
+	  Set<Song> songs = new HashSet<Song>(0);
 
 	public Album() {
 	}
@@ -64,23 +66,23 @@ public class Album implements java.io.Serializable {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	@JsonIgnore 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@JsonIgnore
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "category", nullable = false)
 	public Category getCategory() {
 		return this.category;
 	}
-
+	 
 	public void setCategory(Category category) {
 		this.category = category;
 	}
-	@JsonIgnore 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@JsonIgnore
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "idsinger", nullable = false)
 	public Singer getSinger() {
 		return this.singer;
 	}
-
+	  
 	public void setSinger(Singer singer) {
 		this.singer = singer;
 	}
@@ -112,12 +114,12 @@ public class Album implements java.io.Serializable {
 	public void setDatenotify(Date datenotify) {
 		this.datenotify = datenotify;
 	}
-	@JsonIgnore 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "album")
+	@JsonIgnore
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "album")
 	public Set<Song> getSongs() {
 		return this.songs;
 	}
-
+	  
 	public void setSongs(Set<Song> songs) {
 		this.songs = songs;
 	}

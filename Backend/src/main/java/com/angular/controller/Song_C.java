@@ -58,4 +58,9 @@ public ResponseEntity<Song> deleteSong(@PathVariable("id")Integer id){
 	 this.song.delete(id);
 	 return ResponseEntity.ok().build();
 }
+@GetMapping("album/{id}")
+public List<Song> getListSongbyAlbum(@PathVariable("id") Integer id){
+	List<Song> listAlbum = song.getSongbyAlbum(id);
+	return listAlbum;
+}
 }

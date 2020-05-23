@@ -218,13 +218,12 @@
                                       <li><a href="#"><span class="opt_icon"><span class="icon icon_share"></span></span>Share</a></li>
                                   </ul>
                                   <div class="ms_play_icon">
-                                      <img src="../../../../assets/images/svg/play.svg" alt="">
+                                      <img [routerLink]="['user/albumdetail/',item.id]" routerLinkActive="router-link-active"  routerLinkActive="router-link-active"  src="../../../../assets/images/svg/play.svg" alt="">
                                   </div>
                               </div>
                           </div>
                           <div class="ms_rcnt_box_text">
                               <h3><a href="#">{{item.name}}</a></h3>
-                              <p>Ava Cornish & Brian Hill</p>
                           </div>
                       </div>
                   </div>
@@ -262,7 +261,7 @@
                                 </div>
                                 <div class="w_tp_song_name">
                                     <h3><a href="#">{{item.name}}</a></h3>
-                                    <p>Ava Cornish</p>
+                                    <p>{{item.singer.name}}</p>
                                 </div>
                             </div>
                         </div>
@@ -348,12 +347,12 @@
               <div class="ms_release_slider swiper-container">
                   <div class="ms_divider"></div>
                   <div class="swiper-wrapper">
-                      <div class="swiper-slide">
+                      <div *ngFor="let item of listsong" class="swiper-slide">
                           <div class="ms_release_box">
                               <div class="w_top_song">
                                   <span class="slider_dot"></span>
                                   <div class="w_tp_song_img">
-                                      <img src="../../../../assets/images/weekly/song1.jpg" alt="">
+                                      <img [src]="item.image" alt="">
                                       <div class="ms_song_overlay">
                                       </div>
                                       <div class="ms_play_icon">
@@ -361,100 +360,12 @@
                                       </div>
                                   </div>
                                   <div class="w_tp_song_name">
-                                      <h3><a href="#">Dark Alley Acoustic</a></h3>
+                                      <h3><a href="#">{{item.name}}</a></h3>
                                       <p>Ava Cornish</p>
                                   </div>
                               </div>
                               <div class="weekly_right">
-                                  <span class="w_song_time">5:10</span>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="swiper-slide">
-                          <div class="ms_release_box">
-                              <div class="w_top_song">
-                                  <span class="slider_dot"></span>
-                                  <div class="w_tp_song_img">
-                                      <img src="../../../../assets/images/weekly/song2.jpg" alt="">
-                                      <div class="ms_song_overlay">
-                                      </div>
-                                      <div class="ms_play_icon">
-                                          <img src="../../../../assets/images/svg/play.svg" alt="">
-                                      </div>
-                                  </div>
-                                  <div class="w_tp_song_name">
-                                      <h3><a href="#">Dark Alley Acoustic</a></h3>
-                                      <p>Ava Cornish</p>
-                                  </div>
-                              </div>
-                              <div class="weekly_right">
-                                  <span class="w_song_time">5:10</span>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="swiper-slide">
-                          <div class="ms_release_box">
-                              <div class="w_top_song">
-                                  <span class="slider_dot"></span>
-                                  <div class="w_tp_song_img">
-                                      <img src="../../../../assets/images/weekly/song3.jpg" alt="">
-                                      <div class="ms_song_overlay">
-                                      </div>
-                                      <div class="ms_play_icon">
-                                          <img src="../../../../assets/images/svg/play.svg" alt="">
-                                      </div>
-                                  </div>
-                                  <div class="w_tp_song_name">
-                                      <h3><a href="#">Dark Alley Acoustic</a></h3>
-                                      <p>Ava Cornish</p>
-                                  </div>
-                              </div>
-                              <div class="weekly_right">
-                                  <span class="w_song_time">5:10</span>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="swiper-slide">
-                          <div class="ms_release_box">
-                              <div class="w_top_song">
-                                  <span class="slider_dot"></span>
-                                  <div class="w_tp_song_img">
-                                      <img src="../../../../assets/images/weekly/song4.jpg" alt="">
-                                      <div class="ms_song_overlay">
-                                      </div>
-                                      <div class="ms_play_icon">
-                                          <img src="../../../../assets/images/svg/play.svg" alt="">
-                                      </div>
-                                  </div>
-                                  <div class="w_tp_song_name">
-                                      <h3><a href="#">Dark Alley Acoustic</a></h3>
-                                      <p>Ava Cornish</p>
-                                  </div>
-                              </div>
-                              <div class="weekly_right">
-                                  <span class="w_song_time">5:10</span>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="swiper-slide">
-                          <div class="ms_release_box">
-                              <div class="w_top_song">
-                                  <span class="slider_dot"></span>
-                                  <div class="w_tp_song_img">
-                                      <img src="../../../../assets/images/weekly/song5.jpg" alt="">
-                                      <div class="ms_song_overlay">
-                                      </div>
-                                      <div class="ms_play_icon">
-                                          <img src="../../../../assets/images/svg/play.svg" alt="">
-                                      </div>
-                                  </div>
-                                  <div class="w_tp_song_name">
-                                      <h3><a href="#">Dark Alley Acoustic</a></h3>
-                                      <p>Ava Cornish</p>
-                                  </div>
-                              </div>
-                              <div class="weekly_right">
-                                  <span class="w_song_time">5:10</span>
+                                  <span class="w_song_time">{{item.timeplay}}</span>
                               </div>
                           </div>
                       </div>
@@ -472,10 +383,10 @@
               </div>
               <div class="ms_album_slider swiper-container">
                   <div class="swiper-wrapper">
-                      <div class="swiper-slide">
+                      <div *ngFor="let item of listalbum" class="swiper-slide">
                           <div class="ms_rcnt_box">
                               <div class="ms_rcnt_box_img">
-                                  <img src="../../../../assets/images/album/album1.jpg" alt="">
+                                  <img [src]="item.picture" alt="">
                                   <div class="ms_main_overlay">
                                       <div class="ms_box_overlay"></div>
                                       <div class="ms_more_icon">
@@ -494,254 +405,12 @@
                                   </div>
                               </div>
                               <div class="ms_rcnt_box_text">
-                                  <h3><a href="#">Bloodlust</a></h3>
+                                  <h3><a href="#">{{item.name}}</a></h3>
                                   <p>Ava Cornish & Brian Hill</p>
                               </div>
                           </div>
                       </div>
-                      <div class="swiper-slide">
-                          <div class="ms_rcnt_box">
-                              <div class="ms_rcnt_box_img">
-                                  <img src="../../../../assets/images/album/album2.jpg" alt="">
-                                  <div class="ms_main_overlay">
-                                      <div class="ms_box_overlay"></div>
-                                      <div class="ms_more_icon">
-                                          <img src="../../../../assets/images/svg/more.svg" alt="">
-                                      </div>
-                                      <ul class="more_option">
-                                          <li><a href="#"><span class="opt_icon"><span class="icon icon_fav"></span></span>Add To Favourites</a></li>
-                                          <li><a href="#"><span class="opt_icon"><span class="icon icon_queue"></span></span>Add To Queue</a></li>
-                                          <li><a href="#"><span class="opt_icon"><span class="icon icon_dwn"></span></span>Download Now</a></li>
-                                          <li><a href="#"><span class="opt_icon"><span class="icon icon_playlst"></span></span>Add To Playlist</a></li>
-                                          <li><a href="#"><span class="opt_icon"><span class="icon icon_share"></span></span>Share</a></li>
-                                      </ul>
-                                      <div class="ms_play_icon">
-                                          <img src="../../../../assets/images/svg/play.svg" alt="">
-                                      </div>
-                                  </div>
-                              </div>
-                              <div class="ms_rcnt_box_text">
-                                  <h3><a href="#">Time flies</a></h3>
-                                  <p>Ava Cornish & Brian Hill</p>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="swiper-slide">
-                          <div class="ms_rcnt_box">
-                              <div class="ms_rcnt_box_img">
-                                  <img src="../../../../assets/images/album/album3.jpg" alt="">
-                                  <div class="ms_main_overlay">
-                                      <div class="ms_box_overlay"></div>
-                                      <div class="ms_more_icon">
-                                          <img src="../../../../assets/images/svg/more.svg" alt="">
-                                      </div>
-                                      <ul class="more_option">
-                                          <li><a href="#"><span class="opt_icon"><span class="icon icon_fav"></span></span>Add To Favourites</a></li>
-                                          <li><a href="#"><span class="opt_icon"><span class="icon icon_queue"></span></span>Add To Queue</a></li>
-                                          <li><a href="#"><span class="opt_icon"><span class="icon icon_dwn"></span></span>Download Now</a></li>
-                                          <li><a href="#"><span class="opt_icon"><span class="icon icon_playlst"></span></span>Add To Playlist</a></li>
-                                          <li><a href="#"><span class="opt_icon"><span class="icon icon_share"></span></span>Share</a></li>
-                                      </ul>
-                                      <div class="ms_play_icon">
-                                          <img src="../../../../assets/images/svg/play.svg" alt="">
-                                      </div>
-                                  </div>
-                              </div>
-                              <div class="ms_rcnt_box_text">
-                                  <h3><a href="#">Dark matters</a></h3>
-                                  <p>Ava Cornish & Brian Hill</p>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="swiper-slide">
-                          <div class="ms_rcnt_box">
-                              <div class="ms_rcnt_box_img">
-                                  <img src="../../../../assets/images/album/album4.jpg" alt="">
-                                  <div class="ms_main_overlay">
-                                      <div class="ms_box_overlay"></div>
-                                      <div class="ms_more_icon">
-                                          <img src="../../../../assets/images/svg/more.svg" alt="">
-                                      </div>
-                                      <ul class="more_option">
-                                          <li><a href="#"><span class="opt_icon"><span class="icon icon_fav"></span></span>Add To Favourites</a></li>
-                                          <li><a href="#"><span class="opt_icon"><span class="icon icon_queue"></span></span>Add To Queue</a></li>
-                                          <li><a href="#"><span class="opt_icon"><span class="icon icon_dwn"></span></span>Download Now</a></li>
-                                          <li><a href="#"><span class="opt_icon"><span class="icon icon_playlst"></span></span>Add To Playlist</a></li>
-                                          <li><a href="#"><span class="opt_icon"><span class="icon icon_share"></span></span>Share</a></li>
-                                      </ul>
-                                      <div class="ms_play_icon">
-                                          <img src="../../../../assets/images/svg/play.svg" alt="">
-                                      </div>
-                                  </div>
-                              </div>
-                              <div class="ms_rcnt_box_text">
-                                  <h3><a href="#">Eye to eye</a></h3>
-                                  <p>Ava Cornish & Brian Hill</p>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="swiper-slide">
-                          <div class="ms_rcnt_box">
-                              <div class="ms_rcnt_box_img">
-                                  <img src="../../../../assets/images/album/album5.jpg" alt="">
-                                  <div class="ms_main_overlay">
-                                      <div class="ms_box_overlay"></div>
-                                      <div class="ms_more_icon">
-                                          <img src="../../../../assets/images/svg/more.svg" alt="">
-                                      </div>
-                                      <ul class="more_option">
-                                          <li><a href="#"><span class="opt_icon"><span class="icon icon_fav"></span></span>Add To Favourites</a></li>
-                                          <li><a href="#"><span class="opt_icon"><span class="icon icon_queue"></span></span>Add To Queue</a></li>
-                                          <li><a href="#"><span class="opt_icon"><span class="icon icon_dwn"></span></span>Download Now</a></li>
-                                          <li><a href="#"><span class="opt_icon"><span class="icon icon_playlst"></span></span>Add To Playlist</a></li>
-                                          <li><a href="#"><span class="opt_icon"><span class="icon icon_share"></span></span>Share</a></li>
-                                      </ul>
-                                      <div class="ms_play_icon">
-                                          <img src="../../../../assets/images/svg/play.svg" alt="">
-                                      </div>
-                                  </div>
-                              </div>
-                              <div class="ms_rcnt_box_text">
-                                  <h3><a href="#">Cloud nine</a></h3>
-                                  <p>Ava Cornish & Brian Hill</p>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="swiper-slide">
-                          <div class="ms_rcnt_box">
-                              <div class="ms_rcnt_box_img">
-                                  <img src="../../../../assets/images/album/album6.jpg" alt="">
-                                  <div class="ms_main_overlay">
-                                      <div class="ms_box_overlay"></div>
-                                      <div class="ms_more_icon">
-                                          <img src="../../../../assets/images/svg/more.svg" alt="">
-                                      </div>
-                                      <ul class="more_option">
-                                          <li><a href="#"><span class="opt_icon"><span class="icon icon_fav"></span></span>Add To Favourites</a></li>
-                                          <li><a href="#"><span class="opt_icon"><span class="icon icon_queue"></span></span>Add To Queue</a></li>
-                                          <li><a href="#"><span class="opt_icon"><span class="icon icon_dwn"></span></span>Download Now</a></li>
-                                          <li><a href="#"><span class="opt_icon"><span class="icon icon_playlst"></span></span>Add To Playlist</a></li>
-                                          <li><a href="#"><span class="opt_icon"><span class="icon icon_share"></span></span>Share</a></li>
-                                      </ul>
-                                      <div class="ms_play_icon">
-                                          <img src="../../../../assets/images/svg/play.svg" alt="">
-                                      </div>
-                                  </div>
-                              </div>
-                              <div class="ms_rcnt_box_text">
-                                  <h3><a href="#">Cobweb of lies</a></h3>
-                                  <p>Ava Cornish & Brian Hill</p>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="swiper-slide">
-                          <div class="ms_rcnt_box">
-                              <div class="ms_rcnt_box_img">
-                                  <img src="../../../../assets/images/album/album1.jpg" alt="">
-                                  <div class="ms_main_overlay">
-                                      <div class="ms_box_overlay"></div>
-                                      <div class="ms_more_icon">
-                                          <img src="../../../../assets/images/svg/more.svg" alt="">
-                                      </div>
-                                      <ul class="more_option">
-                                          <li><a href="#"><span class="opt_icon"><span class="icon icon_fav"></span></span>Add To Favourites</a></li>
-                                          <li><a href="#"><span class="opt_icon"><span class="icon icon_queue"></span></span>Add To Queue</a></li>
-                                          <li><a href="#"><span class="opt_icon"><span class="icon icon_dwn"></span></span>Download Now</a></li>
-                                          <li><a href="#"><span class="opt_icon"><span class="icon icon_playlst"></span></span>Add To Playlist</a></li>
-                                          <li><a href="#"><span class="opt_icon"><span class="icon icon_share"></span></span>Share</a></li>
-                                      </ul>
-                                      <div class="ms_play_icon">
-                                          <img src="../../../../assets/images/svg/play.svg" alt="">
-                                      </div>
-                                  </div>
-                              </div>
-                              <div class="ms_rcnt_box_text">
-                                  <h3><a href="#">Bloodlust</a></h3>
-                                  <p>Ava Cornish & Brian Hill</p>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="swiper-slide">
-                          <div class="ms_rcnt_box">
-                              <div class="ms_rcnt_box_img">
-                                  <img src="../../../../assets/images/album/album2.jpg" alt="">
-                                  <div class="ms_main_overlay">
-                                      <div class="ms_box_overlay"></div>
-                                      <div class="ms_more_icon">
-                                          <img src="../../../../assets/images/svg/more.svg" alt="">
-                                      </div>
-                                      <ul class="more_option">
-                                          <li><a href="#"><span class="opt_icon"><span class="icon icon_fav"></span></span>Add To Favourites</a></li>
-                                          <li><a href="#"><span class="opt_icon"><span class="icon icon_queue"></span></span>Add To Queue</a></li>
-                                          <li><a href="#"><span class="opt_icon"><span class="icon icon_dwn"></span></span>Download Now</a></li>
-                                          <li><a href="#"><span class="opt_icon"><span class="icon icon_playlst"></span></span>Add To Playlist</a></li>
-                                          <li><a href="#"><span class="opt_icon"><span class="icon icon_share"></span></span>Share</a></li>
-                                      </ul>
-                                      <div class="ms_play_icon">
-                                          <img src="../../../../assets/images/svg/play.svg" alt="">
-                                      </div>
-                                  </div>
-                              </div>
-                              <div class="ms_rcnt_box_text">
-                                  <h3><a href="#">Time flies</a></h3>
-                                  <p>Ava Cornish & Brian Hill</p>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="swiper-slide">
-                          <div class="ms_rcnt_box">
-                              <div class="ms_rcnt_box_img">
-                                  <img src="../../../../assets/images/album/album3.jpg" alt="">
-                                  <div class="ms_main_overlay">
-                                      <div class="ms_box_overlay"></div>
-                                      <div class="ms_more_icon">
-                                          <img src="../../../../assets/images/svg/more.svg" alt="">
-                                      </div>
-                                      <ul class="more_option">
-                                          <li><a href="#"><span class="opt_icon"><span class="icon icon_fav"></span></span>Add To Favourites</a></li>
-                                          <li><a href="#"><span class="opt_icon"><span class="icon icon_queue"></span></span>Add To Queue</a></li>
-                                          <li><a href="#"><span class="opt_icon"><span class="icon icon_dwn"></span></span>Download Now</a></li>
-                                          <li><a href="#"><span class="opt_icon"><span class="icon icon_playlst"></span></span>Add To Playlist</a></li>
-                                          <li><a href="#"><span class="opt_icon"><span class="icon icon_share"></span></span>Share</a></li>
-                                      </ul>
-                                      <div class="ms_play_icon">
-                                          <img src="../../../../assets/images/svg/play.svg" alt="">
-                                      </div>
-                                  </div>
-                              </div>
-                              <div class="ms_rcnt_box_text">
-                                  <h3><a href="#">Dark matters</a></h3>
-                                  <p>Ava Cornish & Brian Hill</p>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="swiper-slide">
-                          <div class="ms_rcnt_box">
-                              <div class="ms_rcnt_box_img">
-                                  <img src="../../../../assets/images/album/album4.jpg" alt="">
-                                  <div class="ms_main_overlay">
-                                      <div class="ms_box_overlay"></div>
-                                      <div class="ms_more_icon">
-                                          <img src="../../../../assets/images/svg/more.svg" alt="">
-                                      </div>
-                                      <ul class="more_option">
-                                          <li><a href="#"><span class="opt_icon"><span class="icon icon_fav"></span></span>Add To Favourites</a></li>
-                                          <li><a href="#"><span class="opt_icon"><span class="icon icon_queue"></span></span>Add To Queue</a></li>
-                                          <li><a href="#"><span class="opt_icon"><span class="icon icon_dwn"></span></span>Download Now</a></li>
-                                          <li><a href="#"><span class="opt_icon"><span class="icon icon_playlst"></span></span>Add To Playlist</a></li>
-                                          <li><a href="#"><span class="opt_icon"><span class="icon icon_share"></span></span>Share</a></li>
-                                      </ul>
-                                      <div class="ms_play_icon">
-                                          <img src="../../../../assets/images/svg/play.svg" alt="">
-                                      </div>
-                                  </div>
-                              </div>
-                              <div class="ms_rcnt_box_text">
-                                  <h3><a href="#">Eye to eye</a></h3>
-                                  <p>Ava Cornish & Brian Hill</p>
-                              </div>
-                          </div>
-                      </div>
+
                   </div>
               </div>
               <!-- Add Arrows -->
@@ -1369,4 +1038,3 @@
           <!--main div-->
       </div>
   </div>
-

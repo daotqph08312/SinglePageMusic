@@ -11,6 +11,10 @@ const Songs = 'http://localhost:8080/song';
 export class SongService {
 
   constructor(private http: HttpClient) { }
+  getlistSongbyAlbum(id): Observable<Array<Song>> {
+    const url = `http://localhost:8080/song/album/${id}`;
+    return this.http.get<Array<Song>> (url);
+  }
   getListSongs(): Observable<Array<Song>>{
     const url = 'http://localhost:8080/song/';
     return this.http.get<Array<Song>>(url);

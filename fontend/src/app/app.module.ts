@@ -33,6 +33,7 @@ import { RouterModule } from '@angular/router';
 import { PlayComponent } from './component/user/play/play.component';
 import { AlbumService} from './repository/album.service';
 import { HttpClientModule } from '@angular/common/http';
+import { ListdetailComponent } from './component/user/listdetail/listdetail.component';
 const Layout = [
   {path: '', component: IndexComponent},
   {path: 'user', component: LayoutComponent,
@@ -47,7 +48,9 @@ const Layout = [
     {path: 'favourite' , component : FavouriteComponent},
     {path: 'history', component: HistoryComponent},
     { path: 'feature_playlist', component: FeaturePlaylistComponent},
-    { path: 'addplaylist', component: AddPlaylistComponent}
+    { path: 'addplaylist', component: AddPlaylistComponent},
+    { path: 'albumdetail/:id', component: ListdetailComponent}
+
   ]},
   {path: 'admin', component: DashboardComponent}
 ];
@@ -81,7 +84,8 @@ const Layout = [
     SidebarComponent,
     MainListenComponent,
     LayoutComponent,
-    PlayComponent
+    PlayComponent,
+    ListdetailComponent
 
 
   ],
